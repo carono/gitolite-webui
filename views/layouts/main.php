@@ -26,47 +26,58 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
+    NavBar::begin(
+        [
+            'brandLabel' => Yii::$app->name,
+            'brandUrl'   => Yii::$app->homeUrl,
+            'options'    => [
+                'class' => 'navbar-inverse navbar-fixed-top',
+            ],
+        ]
+    );
+    echo Nav::widget(
+        [
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items'   => [
+                ['label' => 'Gitolite', 'url' => ['/gitolite/index']],
+            ],
+        ]
+    );
     NavBar::end();
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+        <?= Breadcrumbs::widget(
+            [
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]
+        ) ?>
+        <div class="col-lg-2">
+            <?php
+            if ($this->context->gitolite) {
+                $id = $this->context->gitolite->id;
+                echo Nav::widget(
+                    [
+                        'options' => ['class' => 'nav nav-pills nav-stacked'],
+                        'items'   => [
+                            ['label' => 'Repositories', 'url' => ['/repository/index', 'id' => $id]],
+                            ['label' => 'Users', 'url' => ['/user/index', 'id' => $id]],
+                            ['label' => 'Groups', 'url' => ['/user/group', 'id' => $id]],
+                        ],
+                    ]
+                );
+            }
+            ?>
+        </div>
+        <div class="col-lg-10">
+            <?= $content ?>
+        </div>
     </div>
 </div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Open source <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

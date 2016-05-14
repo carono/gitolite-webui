@@ -1,7 +1,22 @@
 <?php
+use app\models\Gitolite;
+use yii\grid\GridView;
+use yii\helpers\Html;
+
 /**
- * Created by PhpStorm.
- * User: Карно
- * Date: 13.05.2016
- * Time: 20:48
+ * @var Gitolite $gitolite
  */
+$gitolite->searchRepositories();
+//echo GridView::widget(
+//    [
+//        'dataProvider' => $gitolite->searchRepositories(),
+//        'columns'      => [
+//            'name',
+//            'path',
+//            [
+//                'class'          => \carono\components\ActionColumn::className(),
+//                'checkUrlAccess' => false
+//            ]
+//        ]
+//    ]
+//);

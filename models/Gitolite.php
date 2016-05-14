@@ -8,6 +8,8 @@ use yii\helpers\Url;
 
 /**
  * This is the model class for table "gitolite".
+ *
+ * @property string conf
  */
 class Gitolite extends BaseGitolite
 {
@@ -22,6 +24,19 @@ class Gitolite extends BaseGitolite
         } else {
             return $url;
         }
+    }
+
+    public function getConf()
+    {
+        return $this->path . DIRECTORY_SEPARATOR . 'conf' . DIRECTORY_SEPARATOR . 'gitolite.conf';
+    }
+
+    public function searchRepositories()
+    {
+        $conf = $this->conf;
+        $p = new \app\components\Gitolite();
+        $p->import($conf);
+        var_dump(array_keys($p->getRepos()));
     }
 
     public function beforeValidate()

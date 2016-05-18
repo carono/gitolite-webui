@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "acb4733fdb1186a304265f25e534ef63",
-    "content-hash": "7302f626ac57440c722027efc0a8b900",
+    "hash": "9681051fcc27b30d0234ef5a93ffea9c",
+    "content-hash": "92e6d0056013b96f42ed4e9f462754bd",
     "packages": [
         {
             "name": "2amigos/yii2-transliterator-helper",
@@ -291,6 +291,43 @@
             ]
         },
         {
+            "name": "carono/gitolite-reader",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carono/gitolite-reader.git",
+                "reference": "4657e8d0cc804a3cb6a7080f91a98855929be5ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carono/gitolite-reader/zipball/4657e8d0cc804a3cb6a7080f91a98855929be5ae",
+                "reference": "4657e8d0cc804a3cb6a7080f91a98855929be5ae",
+                "shasum": ""
+            },
+            "type": "parser",
+            "autoload": {
+                "psr-4": {
+                    "carono\\gitolite\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kasyanov",
+                    "email": "spamer2000@yandex.ru"
+                }
+            ],
+            "description": "Reader gitolite conf",
+            "keywords": [
+                "gitolite",
+                "parser"
+            ],
+            "time": "2016-05-18 06:33:27"
+        },
+        {
             "name": "carono/yii2-components",
             "version": "dev-master",
             "source": {
@@ -300,7 +337,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/carono/yii2-components/zipball/459d92a3231cacc9560e960d4110fbde84a4b005",
+                "url": "https://api.github.com/repos/carono/yii2-components/zipball/3b457b39ad5ae77705ced28fdacfc9b5302436ba",
                 "reference": "459d92a3231cacc9560e960d4110fbde84a4b005",
                 "shasum": ""
             },
@@ -1583,7 +1620,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "carono/yii2-components": 20
+        "carono/yii2-components": 20,
+        "carono/gitolite-reader": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

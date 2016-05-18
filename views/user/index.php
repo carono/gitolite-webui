@@ -1,7 +1,25 @@
 <?php
+use app\models\Gitolite;
+use yii\grid\GridView;
+
 /**
- * Created by PhpStorm.
- * User: Карно
- * Date: 13.05.2016
- * Time: 20:49
+ * @var Gitolite $gitolite
  */
+echo GridView::widget(
+    [
+        'dataProvider' => $gitolite->searchUsers(),
+        'columns'      => [
+            [
+                'attribute' => 'team',
+                'value'     => function ($model) {
+                    return join(', ', array_keys($model->teams));
+                }
+            ],
+            'name',
+            [
+                'class'          => \carono\components\ActionColumn::className(),
+                'checkUrlAccess' => false
+            ]
+        ]
+    ]
+);

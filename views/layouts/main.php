@@ -70,6 +70,12 @@ AppAsset::register($this);
             ?>
         </div>
         <div class="col-lg-10">
+            <?php
+            if ($this->context->gitolite) {
+                $small = Html::tag('small', $this->context->gitolite->path);
+                echo Html::tag('h1', $this->context->gitolite->name . " " . $small);
+            }
+            ?>
             <?= $content ?>
         </div>
     </div>

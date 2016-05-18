@@ -8,8 +8,10 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\ArrayHelper;
 
 AppAsset::register($this);
+$gitolite = ArrayHelper::getValue($this->context, 'gitolite');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -39,7 +41,10 @@ AppAsset::register($this);
         [
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items'   => [
-                ['label' => 'Gitolite', 'url' => ['/gitolite/index']],
+                [
+                    'label' => 'Gitolite' . ($gitolite ? " ({$gitolite->name})" : ''),
+                    'url'   => ['/gitolite/index']
+                ],
             ],
         ]
     );
@@ -52,9 +57,9 @@ AppAsset::register($this);
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]
         ) ?>
-        <div class="col-lg-2">
-            <?php
-            if ($this->context->gitolite) {
+        <?php if ($this->context->gitolite) { ?>
+            <div class="col-lg-2">
+                <?php
                 $id = $this->context->gitolite->id;
                 echo Nav::widget(
                     [
@@ -66,16 +71,10 @@ AppAsset::register($this);
                         ],
                     ]
                 );
-            }
-            ?>
-        </div>
+                ?>
+            </div>
+        <?php } ?>
         <div class="col-lg-10">
-            <?php
-            if ($this->context->gitolite) {
-                $small = Html::tag('small', $this->context->gitolite->path);
-                echo Html::tag('h1', $this->context->gitolite->name . " " . $small);
-            }
-            ?>
             <?= $content ?>
         </div>
     </div>

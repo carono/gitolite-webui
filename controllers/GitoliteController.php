@@ -48,4 +48,14 @@ class GitoliteController extends Controller
             throw new HttpException(404, 'Gitolite not found');
         }
     }
+
+    public function actionDelete($id)
+    {
+        if ($gitolite = Gitolite::findOne($id)) {
+            $gitolite->delete();
+            $this->redirect(['/gitolite/index']);
+        } else {
+            throw new HttpException(404, 'Gitolite not found');
+        }
+    }
 }

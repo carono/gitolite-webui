@@ -1,6 +1,7 @@
 <?php
-
-$params = require(__DIR__ . '/params.php');
+if (!file_exists($db = __DIR__ . '/db.php')) {
+    copy($db . '.example', $db);
+}
 
 $config = [
     'id'         => 'basic',
@@ -47,16 +48,14 @@ $config = [
             ],
         ],
     ],
-    'params'     => $params,
+    'params'     => require(__DIR__ . '/params.php'),
 ];
 
 if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
     ];
-
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',

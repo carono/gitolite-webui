@@ -23,5 +23,9 @@ $this->title = $name;
     <p>
         Please contact us if you think this is a server error. Thank you.
     </p>
-
+    <?php
+    if ($this->title == "Invalid Configuration") {
+        echo Html::a('Initial database', ['/site/migrate'],["class"=>"btn btn-primary block"]);
+    }
+    ?>
 </div>

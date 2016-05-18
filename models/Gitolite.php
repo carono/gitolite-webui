@@ -40,7 +40,7 @@ class Gitolite extends BaseGitolite
         $p = new \carono\gitolite\Gitolite();
         $p->import($conf);
         $dataProvider = new ArrayDataProvider();
-        $dataProvider->models = $p->getTeams();
+        $dataProvider->models = $p->teams;
         return $dataProvider;
     }
 

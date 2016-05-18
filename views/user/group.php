@@ -19,6 +19,7 @@ echo GridView::widget(
                     return join(',', ArrayHelper::map($data->items, 'name', 'name'));
                 }
             ],
+            'type',
             [
                 'class'          => \carono\components\ActionColumn::className(),
                 'checkUrlAccess' => false

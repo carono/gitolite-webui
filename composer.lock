@@ -333,12 +333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/carono/yii2-components.git",
-                "reference": "459d92a3231cacc9560e960d4110fbde84a4b005"
+                "reference": "3b457b39ad5ae77705ced28fdacfc9b5302436ba"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/carono/yii2-components/zipball/3b457b39ad5ae77705ced28fdacfc9b5302436ba",
-                "reference": "459d92a3231cacc9560e960d4110fbde84a4b005",
+                "reference": "3b457b39ad5ae77705ced28fdacfc9b5302436ba",
                 "shasum": ""
             },
             "require": {
@@ -380,7 +380,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2016-05-13 09:02:00"
+            "time": "2016-05-17 08:36:11"
         },
         {
             "name": "cebe/markdown",

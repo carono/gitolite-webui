@@ -15,8 +15,8 @@ echo GridView::widget(
             'name',
             [
                 'attribute' => 'items',
-                'value'     => function ($data) {
-                    return join(',', ArrayHelper::map($data->items, 'name', 'name'));
+                'value'     => function ($model) {
+                    return join(', ', ArrayHelper::map($model->items, 'name', 'name'));
                 }
             ],
             'type',

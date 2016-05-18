@@ -24,13 +24,5 @@ class UserController extends Controller
         }
     }
 
-    public function actionGroup($id)
-    {
-        if ($gitolite = Gitolite::findOne($id)) {
-            $this->gitolite = $gitolite;
-            return $this->render('group', ['gitolite' => $gitolite]);
-        } else {
-            throw new HttpException(404, 'Gitolite not found');
-        }
-    }
+
 }

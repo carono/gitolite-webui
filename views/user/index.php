@@ -9,13 +9,13 @@ echo GridView::widget(
     [
         'dataProvider' => $gitolite->searchUsers(),
         'columns'      => [
+            'name',
             [
-                'attribute' => 'team',
+                'attribute' => 'group',
                 'value'     => function ($model) {
                     return join(', ', array_keys($model->teams));
                 }
             ],
-            'name',
             [
                 'class'          => \carono\components\ActionColumn::className(),
                 'checkUrlAccess' => false

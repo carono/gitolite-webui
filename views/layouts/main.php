@@ -67,7 +67,7 @@ $gitolite = ArrayHelper::getValue($this->context, 'gitolite');
                         'items'   => [
                             ['label' => 'Repositories', 'url' => ['/repository/index', 'id' => $id]],
                             ['label' => 'Users', 'url' => ['/user/index', 'id' => $id]],
-                            ['label' => 'Groups', 'url' => ['/user/group', 'id' => $id]],
+                            ['label' => 'Groups', 'url' => ['/group/index', 'id' => $id]],
                         ],
                     ]
                 );
